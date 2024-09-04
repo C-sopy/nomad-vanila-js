@@ -16,7 +16,8 @@ function onLoginSubmit(e) {
 }
 
 function paintGreetings(username) {
-  greeting.innerText = `Bienvenu ${username} !`;
+  username = String(username).toUpperCase();
+  greeting.innerText = `BIENVENUE ${username}➰`;
   greeting.classList.remove(HIDDEN_CLASSNAME);
 }
 

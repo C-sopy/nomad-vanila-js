@@ -8,10 +8,15 @@ function saveTodos() {
   localStorage.setItem(TODOS, JSON.stringify(toDos)); // JSON.stringify : string으로 만들기 & JSON.parse : 배열로 만들기
 }
 
+// filter : array에서 지우고 싶은 item을 제외하고 새로운 array를 보여줌
+// for example)
+// function testFilter(item){item !== 3} --> 3이 아닌 게 true라는 것.
+// [1,2,3,4,5].filter(testFilter); 결과--> [1,2,4,5]
 function deleteTodo(event) {
   const li = event.target.parentElement;
-  localStorage.removeItem(li);
   li.remove();
+  toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
+  saveTodos();
 }
 
 function paintTodo(newTodo) {
